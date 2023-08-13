@@ -4,4 +4,4 @@ En este repositorio subiré el código y los recursos de cada curso que tome. Ca
 
 # Cursos tomados
 
-- De momento, ninguno 😅
+- [Curso de Fundamentos de Typescript](/fundamentos-de-typescript/)
