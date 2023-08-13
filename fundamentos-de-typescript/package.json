@@ -1,6 +1,6 @@
 {
-  "name": "typescript-fundamentos",
-  "version": "0.2.0",
+  "name": "fundamentos-de-typescript",
+  "version": "1.0.0",
   "description": "Curso de Fundamentos de Typescript de Platzi",
   "scripts": {
     "build": "tsc",
@@ -10,8 +10,10 @@
     "typescript"
   ],
   "author": "Sebastian Torres Cabrera",
-  "license": "MIT",
   "devDependencies": {
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "date-fns": "^2.30.0"
   }
 }
