@@ -4,7 +4,10 @@
   "description": "Curso de Fundamentos de Typescript de Platzi",
   "scripts": {
     "build": "tsc",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "lint": "eslint src/**/*.{js,ts}",
+    "lint:fix": "eslint --fix 'src/**/*.{js,ts}'",
+    "format": "prettier --write 'src/**/*.{js,ts}'"
   },
   "keywords": [
     "typescript"
@@ -12,6 +15,11 @@
   "author": "Sebastian Torres Cabrera",
   "devDependencies": {
     "@types/lodash": "^4.14.197",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3",
     "typescript": "^5.1.6"
   },
   "dependencies": {
