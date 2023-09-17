@@ -6,8 +6,8 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "lint": "eslint src/**/*.{js,ts}",
-    "lint:fix": "eslint --fix 'src/**/*.{js,ts}'",
-    "format": "prettier --write 'src/**/*.{js,ts}'"
+    "lint:fix": "eslint --fix src/**/*.{js,ts}",
+    "format": "prettier --write src/**/*.{js,ts}"
   },
   "keywords": [
     "typescript"

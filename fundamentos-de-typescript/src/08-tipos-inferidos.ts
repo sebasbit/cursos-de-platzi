@@ -1,5 +1,5 @@
 // file 1
-(()=> {
+(() => {
   let myProductName = 'Product 1';
   let myProductPrice = 123;
 
@@ -13,7 +13,7 @@
 })();
 
 // file 2
-(()=> {
+(() => {
   let myProductName = 'Product 1';
   let myProductPrice = 123;
 })();

@@ -17,6 +17,6 @@
   console.log(`Mixed: ${mixed}`);
 
   let numbers = [1, 2, 3];
-  numbers.map((i) => i**2);
+  numbers.map((i) => i ** 2);
   console.log(`Numbers: ${numbers}`);
 })();

@@ -10,6 +10,6 @@ export const getProducts = (): Product[] => products;
 
 export const calcStock = (): number => {
   let stock = 0;
-  products.forEach((p) => stock += p.stock);
+  products.forEach((p) => (stock += p.stock));
   return stock;
 };

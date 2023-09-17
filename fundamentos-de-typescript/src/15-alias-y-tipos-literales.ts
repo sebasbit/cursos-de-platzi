@@ -13,7 +13,7 @@
       return n * times;
     }
     return n.repeat(times);
-  }
+  };
 
   console.log(`Multiply 1*2: ${multiply(1, 2)}`);
   console.log(`Multiply '1'*2: ${multiply('1', 2)}`);
@@ -27,7 +27,6 @@
   size = 'L';
   size = 'XL';
   // size = 'XXL'; // Don't do this
-
 
   function printSize(size: Size) {
     console.log(`Size: ${size}`);

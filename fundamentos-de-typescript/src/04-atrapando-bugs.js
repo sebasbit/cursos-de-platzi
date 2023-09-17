@@ -1,13 +1,13 @@
 // @ts-check
 
-(()=> {
+(() => {
   const myCart = [];
   const products = [];
   const limit = 2;
 
   async function getProducts() {
     const rta = await fetch('http://api.escuelajs.co/api/v1/products', {
-      mehtod: 'GET'
+      mehtod: 'GET',
     });
     const data = await rta.parseJson();
     products.concat(data);
@@ -33,7 +33,7 @@
   const person = {
     name: 'Nicolas',
     lastName: 'Molina'
-  }
+  };
   const rta = person +  limit;
   console.log(rta);
 });

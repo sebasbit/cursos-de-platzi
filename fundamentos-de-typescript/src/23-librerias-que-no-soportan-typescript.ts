@@ -1,26 +1,26 @@
-import { groupBy } from 'lodash'
+import { groupBy } from 'lodash';
 
 const users = [
   {
     username: 'Aangg',
-    role: 'USER'
+    role: 'USER',
   },
   {
     username: 'Katara',
-    role: 'USER'
+    role: 'USER',
   },
   {
     username: 'Sokka',
-    role: 'ENTERTAINER'
+    role: 'ENTERTAINER',
   },
   {
     username: 'Toph',
-    role: 'ADMIN'
+    role: 'ADMIN',
   },
   {
     username: 'Zuko',
-    role: 'ADMIN'
-  }
+    role: 'ADMIN',
+  },
 ];
 
 const group = groupBy(users, (u) => u.role);
