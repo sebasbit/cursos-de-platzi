@@ -1,16 +1,16 @@
-# Curso de Fundamentos de Typescript
+# Curso de Fundamentos de TypeScript
 
 Instalar dependencias:
 ```bash
 npm ci
 ```
 
-Compilar archivos de Typescript:
+Compilar archivos de TypeScript:
 ```bash
 npm run build
 ```
 
-Compilar archivos de Typescript cada vez que se detecte un cambio en la carpeta /src:
+Compilar archivos de TypeScript cada vez que se detecte un cambio en la carpeta /src:
 ```bash
 npm run watch
 ```
