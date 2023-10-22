@@ -3,7 +3,7 @@ import { addProduct, getProducts } from './product/product.service';
 
 for (let i = 0; i < 5; i++) {
   addProduct({
-    id: faker.string.uuid(),
+    // id: faker.string.uuid() // Don't do this
     name: faker.commerce.product(),
     description: faker.commerce.productDescription(),
     size: faker.helpers.arrayElement(['S', 'M', 'L', 'XL']),
@@ -11,12 +11,6 @@ for (let i = 0; i < 5; i++) {
     image: faker.image.url(),
     price: parseInt(faker.commerce.price()),
     stock: faker.number.int({ min: 10, max: 100 }),
-    category: {
-      id: faker.string.uuid(),
-      name: faker.commerce.department(),
-      createdAt: faker.date.recent(),
-      updatedAt: faker.date.recent(),
-    },
     tags: faker.helpers.arrayElements([
       'Clothing',
       'Shoes',
@@ -24,8 +18,7 @@ for (let i = 0; i < 5; i++) {
       'Home & Garden',
       'Toys & Games',
     ]),
-    createdAt: faker.date.recent(),
-    updatedAt: faker.date.recent(),
+    categoryId: faker.string.uuid(),
   });
 }
 
