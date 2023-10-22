@@ -8,6 +8,10 @@ export const addProduct = (product: Product): void => {
   collection.push(product);
 };
 
+export const getProducts = (): Product[] => {
+  return collection;
+};
+
 export const getProduct = (id: string | number): Product | undefined => {
   return collection.find((p) => p.id === id);
 };

@@ -5,7 +5,12 @@ export type Size = 'S' | 'M' | 'L' | 'XL';
 
 export interface Product extends Model {
   name: string;
-  stock: number;
+  description: string;
   size: Size;
+  color: string;
+  image: string;
+  price: number;
+  stock: number;
   category: Category;
+  tags: string[];
 }

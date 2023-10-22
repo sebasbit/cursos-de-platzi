@@ -1,39 +1,32 @@
-import { Order } from './order/order.model';
-import { Product } from './product/product.model';
-import { addProduct, getProduct } from './product/product.service';
-import { Role } from './user/user.model';
+import { faker } from '@faker-js/faker';
+import { addProduct, getProducts } from './product/product.service';
 
-const product: Product = {
-  id: 1,
-  name: 'Blouse',
-  stock: 10,
-  size: 'M',
-  category: {
-    id: 1,
-    name: 'Sportswear',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  createdAt: new Date(),
-  updatedAt: new Date(),
-};
+for (let i = 0; i < 5; i++) {
+  addProduct({
+    id: faker.string.uuid(),
+    name: faker.commerce.product(),
+    description: faker.commerce.productDescription(),
+    size: faker.helpers.arrayElement(['S', 'M', 'L', 'XL']),
+    color: faker.color.human(),
+    image: faker.image.url(),
+    price: parseInt(faker.commerce.price()),
+    stock: faker.number.int({ min: 10, max: 100 }),
+    category: {
+      id: faker.string.uuid(),
+      name: faker.commerce.department(),
+      createdAt: faker.date.recent(),
+      updatedAt: faker.date.recent(),
+    },
+    tags: faker.helpers.arrayElements([
+      'Clothing',
+      'Shoes',
+      'Electronics',
+      'Home & Garden',
+      'Toys & Games',
+    ]),
+    createdAt: faker.date.recent(),
+    updatedAt: faker.date.recent(),
+  });
+}
 
-addProduct(product);
-
-console.log(getProduct(1));
-
-const order: Order = {
-  id: 1,
-  products: [product],
-  user: {
-    id: 1,
-    username: 'pepito',
-    role: Role.Customer,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  createdAt: new Date(),
-  updatedAt: new Date(),
-};
-
-console.log(order);
+console.log(getProducts());
