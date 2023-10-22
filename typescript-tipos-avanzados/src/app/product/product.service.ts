@@ -3,6 +3,8 @@ import { Product } from './product.model';
 const collection: Product[] = [];
 
 export const addProduct = (product: Product): void => {
+  // product.id = 'another-id'; // Don't do this
+  // product.createdAt = new Date(); // Don't do this
   collection.push(product);
 };
 
