@@ -8,11 +8,14 @@ const product: Product = {
   name: 'Blouse',
   stock: 10,
   size: 'M',
-  createdAt: new Date(),
   category: {
     id: 1,
     name: 'Sportswear',
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
+  createdAt: new Date(),
+  updatedAt: new Date(),
 };
 
 addProduct(product);
@@ -21,13 +24,16 @@ console.log(getProduct(1));
 
 const order: Order = {
   id: 1,
-  createdAt: new Date(),
   products: [product],
   user: {
     id: 1,
     username: 'pepito',
     role: Role.Customer,
+    createdAt: new Date(),
+    updatedAt: new Date(),
   },
+  createdAt: new Date(),
+  updatedAt: new Date(),
 };
 
 console.log(order);

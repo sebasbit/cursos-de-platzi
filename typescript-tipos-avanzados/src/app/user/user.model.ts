@@ -1,10 +1,11 @@
+import { Model } from '../base.model';
+
 export enum Role {
   Admin,
   Customer,
 }
 
-export interface User {
-  id: string | number;
+export interface User extends Model {
   username: string;
   role: Role;
 }
