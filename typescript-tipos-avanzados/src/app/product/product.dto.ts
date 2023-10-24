@@ -20,3 +20,7 @@ export interface AddProductInput
 //   > {
 //   categoryId: string;
 // }
+
+export interface UpdateProductInput extends Partial<AddProductInput> {}
+
+// export interface UpdateProductInput extends Required<Product> {} // To make all fields required

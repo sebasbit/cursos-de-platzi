@@ -1,8 +1,16 @@
 import { faker } from '@faker-js/faker';
-import { AddProductInput } from './product.dto';
+import { AddProductInput, UpdateProductInput } from './product.dto';
 import { Product } from './product.model';
 
 const collection: Product[] = [];
+
+export const getProducts = (): Product[] => {
+  return collection;
+};
+
+export const getProduct = (id: string): Product | undefined => {
+  return collection.find((p) => p.id === id);
+};
 
 export const addProduct = (input: AddProductInput): Product => {
   const product: Product = {
@@ -24,10 +32,18 @@ export const addProduct = (input: AddProductInput): Product => {
   return product;
 };
 
-export const getProducts = (): Product[] => {
-  return collection;
-};
+export const updateProduct = (
+  id: string,
+  changes: UpdateProductInput,
+): Product | undefined => {
+  const index = collection.findIndex((p) => p.id === id);
+  if (index === -1) {
+    return undefined;
+  }
 
-export const getProduct = (id: string | number): Product | undefined => {
-  return collection.find((p) => p.id === id);
+  const product = collection[index];
+  return (collection[index] = {
+    ...product,
+    ...changes,
+  });
 };
