@@ -35,3 +35,11 @@ const product = products[products.length - 1];
 console.log(
   updateProduct(product.id, { name: 'Better product name', stock: 1 }),
 );
+
+console.log(
+  getProducts({
+    size: 'M',
+    color: 'silver',
+    stock: 1,
+  }),
+);
