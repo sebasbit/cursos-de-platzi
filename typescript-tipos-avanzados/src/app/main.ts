@@ -41,5 +41,6 @@ console.log(
     size: 'M',
     color: 'silver',
     stock: 1,
+    tags: ['Clothing'],
   }),
 );

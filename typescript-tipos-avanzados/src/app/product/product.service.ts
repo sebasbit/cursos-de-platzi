@@ -13,6 +13,8 @@ export const getProducts = (filter?: GetProductInput): Product[] => {
     return collection;
   }
 
+  // filter.tags = []; // Don't do this
+  // filter.tags.push('Non existing tag'); // Don't do this
   return collection.filter((product) => {
     let key: keyof Product;
     for (key in filter) {

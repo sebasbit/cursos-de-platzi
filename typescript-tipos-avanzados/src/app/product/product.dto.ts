@@ -25,4 +25,7 @@ export interface UpdateProductInput extends Partial<AddProductInput> {}
 
 // export interface UpdateProductInput extends Required<Product> {} // To make all fields required
 
-export interface GetProductInput extends Readonly<Partial<Product>> {}
+export interface GetProductInput
+  extends Readonly<Partial<Omit<Product, 'tags'>>> {
+  readonly tags?: ReadonlyArray<string>;
+}
