@@ -25,9 +25,8 @@ export const getProducts = (filter?: GetProductInput): Product[] => {
   });
 };
 
-export const getProduct = (id: string): Product | undefined => {
-  return collection.find((p) => p.id === id);
-};
+export const getProduct = (id: Product['id']): Product | undefined =>
+  collection.find((p) => p.id === id);
 
 export const addProduct = (input: AddProductInput): Product => {
   const product: Product = {
@@ -50,7 +49,7 @@ export const addProduct = (input: AddProductInput): Product => {
 };
 
 export const updateProduct = (
-  id: string,
+  id: Product['id'],
   input: UpdateProductInput,
 ): Product | undefined => {
   const index = collection.findIndex((p) => p.id === id);
