@@ -1,4 +1,4 @@
-# Curso de Fundamentos de TypeScript
+# Curso de Tipos avanzados y Funciones en TypeScript
 
 Instalar dependencias:
 
@@ -22,4 +22,10 @@ Ejecutar archivos compilados:
 
 ```bash
 node ./dist/nombre-del-archivo.js
+```
+
+Ejecutar archivos de TypeScript:
+
+```bash
+npx ts-node ./src/nombre-del-archivo.ts
 ```
