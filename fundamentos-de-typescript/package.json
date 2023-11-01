@@ -1,7 +1,7 @@
 {
   "name": "fundamentos-de-typescript",
   "version": "1.0.0",
-  "description": "Curso de Fundamentos de Typescript de Platzi",
+  "description": "Curso de Fundamentos de TypeScript de Platzi",
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
