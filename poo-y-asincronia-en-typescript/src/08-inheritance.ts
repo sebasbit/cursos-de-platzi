@@ -2,7 +2,7 @@ class Player {
   public constructor(public name: string) {}
 
   public move(direction: 'UP' | 'DOWN' | 'LEFT' | 'RIGHT'): string {
-    return `${this.name} moved to ${direction}`;
+    return `${this.name} moved ${direction}`;
   }
 }
 
