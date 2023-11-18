@@ -2,11 +2,15 @@ import { faker } from '@faker-js/faker';
 import { CreateProductInput, UpdateProductInput } from './product.dto';
 import { Product } from './product.model';
 
-class InMemoryProductService {
+export class InMemoryProductService {
   collection: Product[] = [];
 
   public find(id: Product['id']): Product | undefined {
     return this.collection.find((p) => p.id === id);
+  }
+
+  public findAll(): Product[] {
+    return this.collection;
   }
 
   public add(product: Product): void {
