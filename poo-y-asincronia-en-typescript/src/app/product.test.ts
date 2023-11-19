@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { InMemoryProductService } from './product/product.service';
+import { InMemoryProductService } from './product/service/in-memory';
 
 const service = new InMemoryProductService();
 
