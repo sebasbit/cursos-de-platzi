@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import { InMemoryProductService } from './product/service/in-memory';
 import { HttpProductService } from './product/service/http';
 
-const testInMemoryProductService = () => {
+(() => {
   console.log('\n===== Testing InMemoryProductService =====\n');
 
   const service = new InMemoryProductService();
@@ -24,9 +24,9 @@ const testInMemoryProductService = () => {
   const product = service.find(productId);
 
   console.log('Updated product:', product);
-};
+})();
 
-const testHttpProductService = async () => {
+(async () => {
   console.log('\n===== Testing HttpProductService =====\n');
 
   const service = new HttpProductService();
@@ -55,7 +55,4 @@ const testHttpProductService = async () => {
   product = await service.find(productId);
 
   console.log('Updated product:', product);
-};
-
-testInMemoryProductService();
-testHttpProductService();
+})();
