@@ -1,0 +1,21 @@
+section {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+li span {
+  padding: 2px;
+  background-color: lightblue;
+  border-radius: 5px;
+}
