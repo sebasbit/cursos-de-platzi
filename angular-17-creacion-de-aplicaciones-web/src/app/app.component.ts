@@ -9,12 +9,4 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  name = 'world';
-  tasks = [
-    'Run "ng new app-name"',
-    'Edit app.component.html to change the page content',
-    'Run "ng serve"',
-    'Open in your browser http://localhost:4200',
-  ];
-}
+export class AppComponent {}
