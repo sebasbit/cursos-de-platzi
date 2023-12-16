@@ -1,0 +1,11 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ededed;
+}
+
+section span {
+  font-weight: 700;
+  color: green;
+}

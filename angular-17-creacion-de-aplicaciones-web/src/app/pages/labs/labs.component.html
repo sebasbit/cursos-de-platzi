@@ -1,1 +1,22 @@
-<h2>labs works! 🚀</h2>
+<section>
+  <header>
+    <h1>
+      Hello <span>{{ title }}</span> 🧪
+    </h1>
+  </header>
+  <main>
+    <p>
+      We're <span>{{ (getPrivateWord() + " ").repeat(3) }}</span> happy that you
+      visit us.
+    </p>
+    <h2>To-Do</h2>
+    <ul>
+      <li *ngFor="let task of tasks">
+        <span>{{ task }}</span>
+      </li>
+    </ul>
+    <p>
+      There are <span>{{ 2 + 1 }}</span> pending tasks.
+    </p>
+  </main>
+</section>
