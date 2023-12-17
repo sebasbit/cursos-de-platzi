@@ -15,6 +15,13 @@ export class LabsComponent {
     'Run the project with "ng serve"',
     'Open your web browser on http://localhost:4200/',
   ];
+  scientist = {
+    name: 'pepito',
+    age: 23,
+    avatar:
+      'https://cataas.com/cat/says/Hello%20labs?fontColor=green&fontSize=20&type=square',
+    canUpdateAge: false,
+  };
   private word = 'very';
 
   public getPrivateWord(): string {

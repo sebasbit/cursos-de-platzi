@@ -18,5 +18,13 @@
     <p>
       There are <span>{{ 2 + 1 }}</span> pending tasks.
     </p>
+    <h2>
+      Scientist <span>{{ scientist.name }}</span>
+    </h2>
+    <img [src]="scientist.avatar" alt="{{ scientist.name }} avatar" />
+    <div>
+      <input type="number" [value]="scientist.age" />
+      <button [disabled]="scientist.canUpdateAge">Update age</button>
+    </div>
   </main>
 </section>
