@@ -24,6 +24,14 @@ export class LabsComponent {
   };
   private word = 'very';
 
+  public handleClick(): void {
+    alert('You clicked the button ✨');
+  }
+
+  public handleChange(event: Event): void {
+    console.log(event);
+  }
+
   public getPrivateWord(): string {
     return this.word;
   }

@@ -15,5 +15,6 @@ section button {
   background-color: lightgray;
   border: 1px solid green;
   border-radius: 5px;
-  padding: 2px;
+  padding: 5px;
+  margin-right: 5px;
 }

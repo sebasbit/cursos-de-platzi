@@ -26,5 +26,9 @@
       <input type="number" [value]="scientist.age" />
       <button [disabled]="scientist.canUpdateAge">Update age</button>
     </div>
+    <h2>Actions (open the console)</h2>
+    <button (click)="handleClick()">👆 Click me</button>
+    <button (dblclick)="handleClick()">👆👆 Click me twice</button>
+    <input type="number" value="1" (change)="handleChange($event)" />
   </main>
 </section>
