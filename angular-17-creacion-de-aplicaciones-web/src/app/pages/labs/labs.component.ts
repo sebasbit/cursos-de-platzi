@@ -32,6 +32,15 @@ export class LabsComponent {
     console.log(event);
   }
 
+  public handleKeydown(event: KeyboardEvent): void {
+    const input = event.target as HTMLInputElement;
+    console.log(input.value);
+  }
+
+  public handleKeydownShiftH(): void {
+    alert('You pressed Shift + h ✨');
+  }
+
   public getPrivateWord(): string {
     return this.word;
   }

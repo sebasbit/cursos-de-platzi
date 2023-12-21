@@ -27,8 +27,21 @@
       <button [disabled]="scientist.canUpdateAge">Update age</button>
     </div>
     <h2>Actions (open the console)</h2>
-    <button (click)="handleClick()">👆 Click me</button>
-    <button (dblclick)="handleClick()">👆👆 Click me twice</button>
+    <p>🖱 Click & double click</p>
+    <button (click)="handleClick()">Click me</button>
+    <button (dblclick)="handleClick()">Click me twice</button>
+    <p>⌨ Change</p>
     <input type="number" value="1" (change)="handleChange($event)" />
+    <p>⌨ Keydown</p>
+    <input
+      type="text"
+      [value]="scientist.name"
+      (keydown)="handleKeydown($event)"
+    />
+    <input
+      type="text"
+      placeholder="Press Shift + h"
+      (keydown.shift.h)="handleKeydownShiftH()"
+    />
   </main>
 </section>
