@@ -1,7 +1,7 @@
 <section>
   <header>
     <h1>
-      Hello <span>{{ title }}</span> 🧪
+      Hello <span>{{ title() }}</span> 🧪
     </h1>
   </header>
   <main>
@@ -41,7 +41,16 @@
     <input
       type="text"
       placeholder="Press Shift + h"
-      (keydown.shift.h)="handleKeydownShiftH()"
+      (keydown.shift.h)="handleKeydownWithShortcut()"
+    />
+    <h2>Signals</h2>
+    <p>
+      Title: <span>{{ title() }}</span>
+    </p>
+    <input
+      type="text"
+      [value]="title()"
+      (keyup)="handleKeyupWithSignal($event)"
     />
   </main>
 </section>

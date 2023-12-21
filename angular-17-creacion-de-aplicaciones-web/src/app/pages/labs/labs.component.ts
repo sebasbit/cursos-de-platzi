@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-labs',
@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './labs.component.css',
 })
 export class LabsComponent {
-  title = 'labs';
+  title = signal('labs');
   tasks = [
     'Create a new project with "ng new project name"',
     'Run the project with "ng serve"',
@@ -37,8 +37,13 @@ export class LabsComponent {
     console.log(input.value);
   }
 
-  public handleKeydownShiftH(): void {
+  public handleKeydownWithShortcut(): void {
     alert('You pressed Shift + h ✨');
+  }
+
+  public handleKeyupWithSignal(event: KeyboardEvent): void {
+    const input = event.target as HTMLInputElement;
+    this.title.set(input.value);
   }
 
   public getPrivateWord(): string {
