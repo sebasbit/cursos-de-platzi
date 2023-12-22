@@ -9,9 +9,17 @@ import { Component, signal } from '@angular/core';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  tasks = signal([
-    'Create a new project with "ng new project name"',
-    'Run the project with "ng serve"',
-    'Open your web browser on http://localhost:4200/',
-  ]);
+  tasks = signal(['Clean my room', 'Do laundry', 'Work out']);
+
+  addTask(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.tasks.update((tasks) => [...tasks, input.value]);
+    input.value = '';
+  }
+
+  deleteTask(index: number): void {
+    this.tasks.update((tasks) =>
+      tasks.filter((_, position) => position !== index)
+    );
+  }
 }
