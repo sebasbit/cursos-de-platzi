@@ -21,7 +21,7 @@ export class HomeComponent {
     this.tasks.update((tasks) => [
       ...tasks,
       {
-        id: this.tasks().length + 1,
+        id: Date.now(),
         title: input.value,
         completed: false,
       },
@@ -32,6 +32,14 @@ export class HomeComponent {
   deleteTask(index: number): void {
     this.tasks.update((tasks) =>
       tasks.filter((_, position) => position !== index)
+    );
+  }
+
+  updateTask(index: number): void {
+    this.tasks.update((tasks) =>
+      tasks.map((task, position) =>
+        position !== index ? task : { ...task, completed: !task.completed }
+      )
     );
   }
 }
