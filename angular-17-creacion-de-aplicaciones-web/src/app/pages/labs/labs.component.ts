@@ -15,13 +15,13 @@ export class LabsComponent {
     'Run the project with "ng serve"',
     'Open your web browser on http://localhost:4200/',
   ];
-  scientist = {
+  scientist = signal({
     name: 'pepito',
     age: 23,
     avatar:
       'https://cataas.com/cat/says/Hello%20labs?fontColor=green&fontSize=20&type=square',
     canUpdateAge: false,
-  };
+  });
   private word = 'very';
 
   public handleClick(): void {
@@ -44,6 +44,13 @@ export class LabsComponent {
   public handleKeyupWithSignal(event: KeyboardEvent): void {
     const input = event.target as HTMLInputElement;
     this.title.set(input.value);
+  }
+
+  public updateAge(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.scientist.update((scientist) => {
+      return { ...scientist, age: parseInt(input.value) };
+    });
   }
 
   public getPrivateWord(): string {

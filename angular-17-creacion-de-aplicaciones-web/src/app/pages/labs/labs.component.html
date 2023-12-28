@@ -19,12 +19,12 @@
       There are <span>{{ 2 + 1 }}</span> pending tasks.
     </p>
     <h2>
-      Scientist <span>{{ scientist.name }}</span>
+      Scientist <span>{{ scientist().name }}</span>
     </h2>
-    <img [src]="scientist.avatar" alt="{{ scientist.name }} avatar" />
+    <img [src]="scientist().avatar" alt="{{ scientist().name }} avatar" />
     <div>
-      <input type="number" [value]="scientist.age" />
-      <button [disabled]="scientist.canUpdateAge">Update age</button>
+      <input type="number" [value]="scientist().age" />
+      <button [disabled]="scientist().canUpdateAge">Update age</button>
     </div>
     <h2>Actions (open the console)</h2>
     <p>🖱 Click & double click</p>
@@ -35,7 +35,7 @@
     <p>⌨ Keydown</p>
     <input
       type="text"
-      [value]="scientist.name"
+      [value]="scientist().name"
       (keydown)="handleKeydown($event)"
     />
     <input
@@ -51,6 +51,23 @@
       type="text"
       [value]="title()"
       (keyup)="handleKeyupWithSignal($event)"
+    />
+    <h2>Conditionals (ngIf)</h2>
+    <p
+      *ngIf="
+        scientist().name === 'pepito' && scientist().age >= 18;
+        else underageBlock
+      "
+    >
+      I'm pepito and I'm <span>of age</span>
+    </p>
+    <ng-template #underageBlock>
+      <p>I'm pepito and I'm <span>underage</span></p>
+    </ng-template>
+    <input
+      type="number"
+      [value]="scientist().age"
+      (change)="updateAge($event)"
     />
   </main>
 </section>
