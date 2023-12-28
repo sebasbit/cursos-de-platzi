@@ -46,10 +46,17 @@ export class LabsComponent {
     this.title.set(input.value);
   }
 
-  public updateAge(event: Event): void {
+  public changeAge(event: Event): void {
     const input = event.target as HTMLInputElement;
     this.scientist.update((scientist) => {
       return { ...scientist, age: parseInt(input.value) };
+    });
+  }
+
+  public changeName(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.scientist.update((scientist) => {
+      return { ...scientist, name: input.value };
     });
   }
 

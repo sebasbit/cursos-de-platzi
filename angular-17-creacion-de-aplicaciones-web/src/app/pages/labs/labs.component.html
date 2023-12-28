@@ -59,15 +59,29 @@
         else underageBlock
       "
     >
-      I'm pepito and I'm <span>of age</span>
+      <span>I'm pepito</span> and I'm <span>of age</span>
     </p>
     <ng-template #underageBlock>
-      <p>I'm pepito and I'm <span>underage</span></p>
+      <p><span>I am not pepito</span> or I'm <span>underage</span></p>
     </ng-template>
     <input
       type="number"
       [value]="scientist().age"
-      (change)="updateAge($event)"
+      (change)="changeAge($event)"
+    />
+    <h2>Conditionals (ngSwitch & ngSwitchDefault)</h2>
+    <p>
+      I'm
+      <ng-container [ngSwitch]="scientist().name">
+        <span *ngSwitchCase="'pepito'">pepito</span>
+        <span *ngSwitchCase="'jaimito'">jaimito</span>
+        <span *ngSwitchDefault="">... Who am I?</span>
+      </ng-container>
+    </p>
+    <input
+      type="text"
+      [value]="scientist().name"
+      (keyup.enter)="changeName($event)"
     />
   </main>
 </section>
