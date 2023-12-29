@@ -1,20 +1,24 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, OnDestroy, signal } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-labs',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './labs.component.html',
   styleUrl: './labs.component.css',
 })
-export class LabsComponent {
+export class LabsComponent implements OnDestroy {
   title = signal('labs');
+
   tasks = [
     'Create a new project with "ng new project name"',
     'Run the project with "ng serve"',
     'Open your web browser on http://localhost:4200/',
   ];
+
   scientist = signal({
     name: 'pepito',
     age: 23,
@@ -22,7 +26,22 @@ export class LabsComponent {
       'https://cataas.com/cat/says/Hello%20labs?fontColor=green&fontSize=20&type=square',
     canUpdateAge: false,
   });
+
+  colorControl: FormControl<string> = new FormControl();
+
+  private colorSubscription: Subscription;
+
   private word = 'very';
+
+  constructor() {
+    this.colorSubscription = this.colorControl.valueChanges.subscribe((color) =>
+      console.log(color)
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.colorSubscription.unsubscribe();
+  }
 
   public handleClick(): void {
     alert('You clicked the button ✨');

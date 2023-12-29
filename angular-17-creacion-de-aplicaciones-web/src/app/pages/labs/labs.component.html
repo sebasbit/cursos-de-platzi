@@ -83,5 +83,10 @@
       [value]="scientist().name"
       (keyup.enter)="changeName($event)"
     />
+    <h2>Reactive forms</h2>
+    <p>
+      Color: <span>{{ colorControl.value }}</span>
+    </p>
+    <input type="color" [formControl]="colorControl" />
   </main>
 </section>
