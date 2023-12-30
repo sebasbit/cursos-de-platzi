@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, signal } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -28,8 +28,12 @@ export class LabsComponent implements OnDestroy {
   });
 
   colorControl: FormControl<string> = new FormControl();
-
   private colorSubscription: Subscription;
+
+  nameControl = new FormControl('', {
+    nonNullable: true,
+    validators: [Validators.required, Validators.minLength(3)],
+  });
 
   private word = 'very';
 

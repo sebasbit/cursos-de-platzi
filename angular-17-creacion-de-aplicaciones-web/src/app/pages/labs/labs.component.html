@@ -89,5 +89,17 @@
       <span [style.color]="colorControl.value">{{ colorControl.value }}</span>
     </p>
     <input type="color" [formControl]="colorControl" />
+    <h2>Classes</h2>
+    <input
+      type="text"
+      placeholder="Type your name"
+      [formControl]="nameControl"
+    />
+    <span
+      class="message-error"
+      [class.show]="nameControl.invalid && nameControl.touched"
+    >
+      The name must be at least 3 characters.
+    </span>
   </main>
 </section>
