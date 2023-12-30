@@ -85,7 +85,8 @@
     />
     <h2>Reactive forms</h2>
     <p>
-      Color: <span>{{ colorControl.value }}</span>
+      Color:
+      <span [style.color]="colorControl.value">{{ colorControl.value }}</span>
     </p>
     <input type="color" [formControl]="colorControl" />
   </main>
