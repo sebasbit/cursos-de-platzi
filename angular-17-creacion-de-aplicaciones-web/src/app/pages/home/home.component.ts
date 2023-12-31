@@ -12,9 +12,9 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 })
 export class HomeComponent {
   tasks = signal<Task[]>([
-    { id: 1, title: 'Clean my room', completed: true },
-    { id: 2, title: 'Do laundry', completed: false },
-    { id: 3, title: 'Work out', completed: false },
+    { id: 1, title: 'Clean my room', completed: true, editing: false },
+    { id: 2, title: 'Do laundry', completed: false, editing: false },
+    { id: 3, title: 'Work out', completed: false, editing: false },
   ]);
 
   taskControl = new FormControl('', {
@@ -37,6 +37,7 @@ export class HomeComponent {
         id: Date.now(),
         title: value,
         completed: false,
+        editing: false,
       },
     ]);
 
@@ -49,11 +50,34 @@ export class HomeComponent {
     );
   }
 
-  updateTask(index: number): void {
+  maskAsCompleted(index: number): void {
     this.tasks.update((tasks) =>
       tasks.map((task, position) =>
         position !== index ? task : { ...task, completed: !task.completed }
       )
+    );
+  }
+
+  changeTaskTitle(index: number, event: Event): void {
+    const input = event.target as HTMLInputElement;
+    this.tasks.update((tasks) =>
+      tasks.map((task, position) =>
+        position !== index
+          ? task
+          : { ...task, title: input.value, editing: false }
+      )
+    );
+  }
+
+  switchToEditMode(index: number): void {
+    if (this.tasks()[index].completed) {
+      return;
+    }
+
+    this.tasks.update((tasks) =>
+      tasks.map((task, position) => {
+        return { ...task, editing: index === position };
+      })
     );
   }
 }
