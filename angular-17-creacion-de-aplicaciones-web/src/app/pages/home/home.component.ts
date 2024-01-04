@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import {
+  Component,
+  Injector,
+  OnInit,
+  computed,
+  effect,
+  signal,
+} from '@angular/core';
 import { Task, TaskFilter } from '../../models/task.model';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -10,7 +17,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   tasks = signal<Task[]>([
     { id: 1, title: 'Clean my room', completed: true, editing: false },
     { id: 2, title: 'Do laundry', completed: false, editing: false },
@@ -35,6 +42,22 @@ export class HomeComponent {
         return this.tasks();
     }
   });
+
+  constructor(private injector: Injector) {}
+
+  ngOnInit(): void {
+    const storage = localStorage.getItem('tasks');
+    if (storage !== null) {
+      this.tasks.set(JSON.parse(storage));
+    }
+    this.trackTaskStorage();
+  }
+
+  private trackTaskStorage(): void {
+    effect(() => localStorage.setItem('tasks', JSON.stringify(this.tasks())), {
+      injector: this.injector,
+    });
+  }
 
   addTask(): void {
     let value = '';

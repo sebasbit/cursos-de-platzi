@@ -69,24 +69,36 @@
     <footer class="footer">
       <!-- This should be `0 items left` by default -->
       <span class="todo-count">
-        <strong>{{ tasks().length }} </strong>
-        <span *ngIf="tasks().length === 1; else pluralBlock">item</span>
+        <strong>{{ filteredTasks().length }} </strong>
+        <span *ngIf="filteredTasks().length === 1; else pluralBlock">item</span>
         <ng-template #pluralBlock><span>items</span></ng-template>
       </span>
       <!-- Remove this if you don't implement routing -->
       <ul class="filters">
         <li>
-          <a routerLink="/" class="selected" (click)="changeFilter('ALL')">
+          <a
+            routerLink="/"
+            [class.selected]="filter() === 'ALL'"
+            (click)="changeFilter('ALL')"
+          >
             All
           </a>
         </li>
         <li>
-          <a routerLink="/pending" (click)="changeFilter('PENDING')">
+          <a
+            routerLink="/pending"
+            [class.selected]="filter() === 'PENDING'"
+            (click)="changeFilter('PENDING')"
+          >
             Pending
           </a>
         </li>
         <li>
-          <a routerLink="/completed" (click)="changeFilter('COMPLETED')">
+          <a
+            routerLink="/completed"
+            [class.selected]="filter() === 'COMPLETED'"
+            (click)="changeFilter('COMPLETED')"
+          >
             Completed
           </a>
         </li>
