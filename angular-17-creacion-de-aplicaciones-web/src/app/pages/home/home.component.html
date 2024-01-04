@@ -18,25 +18,25 @@
     <section class="main">
       <ul class="todo-list">
         <li
-          *ngFor="let task of filteredTasks(); index as index"
+          *ngFor="let task of filteredTasks()"
           [class.completed]="task.completed"
           [class.editing]="task.editing"
-          (dblclick)="switchToEditMode(index)"
+          (dblclick)="switchToEditMode(task.id)"
         >
           <div class="view">
             <input
               class="toggle"
               type="checkbox"
               [checked]="task.completed"
-              (change)="maskAsCompleted(index)"
+              (change)="markAsCompleted(task.id)"
             />
             <label>{{ task.title }}</label>
-            <button class="destroy" (click)="deleteTask(index)"></button>
+            <button class="destroy" (click)="deleteTask(task.id)"></button>
           </div>
           <input
             class="edit"
             [value]="task.title"
-            (keyup.enter)="changeTaskTitle(index, $event)"
+            (keyup.enter)="changeTaskTitle(task.id, $event)"
           />
         </li>
         <!-- <li class="completed">

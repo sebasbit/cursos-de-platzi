@@ -81,39 +81,35 @@ export class HomeComponent implements OnInit {
     this.taskControl.setValue('');
   }
 
-  deleteTask(index: number): void {
-    this.tasks.update((tasks) =>
-      tasks.filter((_, position) => position !== index)
-    );
+  deleteTask(id: number): void {
+    this.tasks.update((tasks) => tasks.filter((task) => task.id !== id));
   }
 
-  maskAsCompleted(index: number): void {
+  markAsCompleted(id: number): void {
     this.tasks.update((tasks) =>
-      tasks.map((task, position) =>
-        position !== index ? task : { ...task, completed: !task.completed }
+      tasks.map((task) =>
+        task.id !== id ? task : { ...task, completed: !task.completed }
       )
     );
   }
 
-  changeTaskTitle(index: number, event: Event): void {
+  changeTaskTitle(id: number, event: Event): void {
     const input = event.target as HTMLInputElement;
     this.tasks.update((tasks) =>
-      tasks.map((task, position) =>
-        position !== index
-          ? task
-          : { ...task, title: input.value, editing: false }
+      tasks.map((task) =>
+        task.id !== id ? task : { ...task, title: input.value, editing: false }
       )
     );
   }
 
-  switchToEditMode(index: number): void {
-    if (this.tasks()[index].completed) {
+  switchToEditMode(id: number): void {
+    if (this.tasks().find((task) => task.id === id)?.completed) {
       return;
     }
 
     this.tasks.update((tasks) =>
-      tasks.map((task, position) => {
-        return { ...task, editing: index === position };
+      tasks.map((task) => {
+        return { ...task, editing: task.id === id };
       })
     );
   }
