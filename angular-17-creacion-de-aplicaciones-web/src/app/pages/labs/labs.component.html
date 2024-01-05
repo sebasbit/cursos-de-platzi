@@ -101,5 +101,16 @@
     >
       The name must be at least 3 characters.
     </span>
+    <h2>Conditionals (&commat;if)</h2>
+    @if (scientist().name === 'pepito' && scientist().age >= 18) {
+    <p><span>I'm pepito</span> and I'm <span>of age</span></p>
+    } @else {
+    <p><span>I am not pepito</span> or I'm <span>underage</span></p>
+    }
+    <input
+      type="number"
+      [value]="scientist().age"
+      (change)="changeAge($event)"
+    />
   </main>
 </section>
