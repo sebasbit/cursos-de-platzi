@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-ecommerce',
   standalone: true,
-  imports: [],
-  templateUrl: './ecommerce.component.html',
-  styleUrl: './ecommerce.component.css'
+  imports: [RouterOutlet],
+  template: '<router-outlet />',
 })
-export class EcommerceComponent {
-
-}
+export class EcommerceComponent {}
