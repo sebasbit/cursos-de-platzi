@@ -17,8 +17,8 @@
     <!-- This section should be hidden by default and shown when there are todos -->
     <section class="main">
       <ul class="todo-list">
+        @for (task of filteredTasks(); track task.id) {
         <li
-          *ngFor="let task of filteredTasks()"
           [class.completed]="task.completed"
           [class.editing]="task.editing"
           (dblclick)="switchToEditMode(task.id)"
@@ -39,6 +39,7 @@
             (keyup.enter)="changeTaskTitle(task.id, $event)"
           />
         </li>
+        }
         <!-- <li class="completed">
           <div class="view">
             <input class="toggle" type="checkbox" checked />
@@ -70,8 +71,7 @@
       <!-- This should be `0 items left` by default -->
       <span class="todo-count">
         <strong>{{ filteredTasks().length }} </strong>
-        <span *ngIf="filteredTasks().length === 1; else pluralBlock">item</span>
-        <ng-template #pluralBlock><span>items</span></ng-template>
+        @if (filteredTasks().length === 1) { item } @else { items }
       </span>
       <!-- Remove this if you don't implement routing -->
       <ul class="filters">
