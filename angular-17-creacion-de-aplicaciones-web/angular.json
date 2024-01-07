@@ -50,7 +50,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              {
+                "input": "src/styles-learning.css",
+                "inject": false,
+                "bundleName": "styles-learning"
+              },
+              {
+                "input": "src/styles-ecommerce.css",
+                "inject": false,
+                "bundleName": "styles-ecommerce"
+              }
             ],
             "scripts": []
           },

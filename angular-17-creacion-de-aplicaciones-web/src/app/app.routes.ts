@@ -1,14 +1,24 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { LabsComponent } from './pages/labs/labs.component';
+import { HomeComponent } from './learning/pages/home/home.component';
+import { LabsComponent } from './learning/pages/labs/labs.component';
+import { EcommerceComponent } from './ecommerce/ecommerce.component';
 
 export const routes: Routes = [
   {
-    path: '',
-    component: HomeComponent,
+    path: 'learning',
+    children: [
+      {
+        path: '',
+        component: HomeComponent,
+      },
+      {
+        path: 'labs',
+        component: LabsComponent,
+      },
+    ],
   },
   {
-    path: 'labs',
-    component: LabsComponent,
+    path: 'ecommerce',
+    component: EcommerceComponent,
   },
 ];
