@@ -8,4 +8,8 @@ import { ProductComponent } from '../../component/product/product.component';
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
 })
-export class ListComponent {}
+export class ListComponent {
+  handleAddToCart(event: string): void {
+    alert(event);
+  }
+}
