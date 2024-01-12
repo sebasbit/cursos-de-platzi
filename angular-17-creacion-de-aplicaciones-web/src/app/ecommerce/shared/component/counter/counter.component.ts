@@ -27,6 +27,14 @@ export class CounterComponent
 
   ngOnChanges(changes: SimpleChanges): void {
     this.writeLog('CounterComponent.ngOnChanges', changes);
+
+    const duration = changes['duration'];
+    if (
+      duration !== undefined &&
+      duration.currentValue !== duration.previousValue
+    ) {
+      this.writeLog('CounterComponent.ngOnChanges => change detected');
+    }
   }
 
   ngOnInit(): void {
