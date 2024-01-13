@@ -13,7 +13,7 @@ import {
   selector: 'app-counter',
   standalone: true,
   imports: [],
-  template: `<p>counter: {{ counter() }}</p>`,
+  template: `<p class="text-sm">{{ message }}: {{ counter() }}</p>`,
   styles: ``,
 })
 export class CounterComponent
@@ -52,7 +52,7 @@ export class CounterComponent
     this.counterRef = window.setInterval(() => {
       console.log('Running interval');
       this.counter.update((value) => value + 1);
-    }, 1000);
+    }, this.duration);
   }
 
   ngAfterViewInit(): void {
