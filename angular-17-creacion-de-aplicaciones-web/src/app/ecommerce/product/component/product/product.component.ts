@@ -6,7 +6,7 @@ import { Product } from '../../../shared/model/product.model';
   standalone: true,
   imports: [],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.css',
+  styles: ``,
 })
 export class ProductComponent {
   @Input({ required: true }) product!: Product;
