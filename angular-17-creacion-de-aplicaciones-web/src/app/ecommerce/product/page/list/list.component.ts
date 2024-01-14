@@ -12,6 +12,7 @@ import { HeaderComponent } from '../../../shared/component/header/header.compone
 })
 export class ListComponent {
   products = signal<Product[]>([]);
+  cart = signal<Product[]>([]);
 
   constructor() {
     this.products.set([
@@ -60,7 +61,7 @@ export class ListComponent {
     ]);
   }
 
-  handleAddToCart(event: string): void {
-    alert(event);
+  handleAddToCart(product: Product): void {
+    this.cart.update((products) => [...products, product]);
   }
 }
