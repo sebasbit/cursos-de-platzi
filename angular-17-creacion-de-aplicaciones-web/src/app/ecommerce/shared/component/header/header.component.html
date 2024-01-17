@@ -78,10 +78,19 @@
     </button>
   </div>
   <div>
-    <ul>
+    <div class="pt-4 flex flex-col">
       @for (product of cart; track product.id) {
-      <li>{{ product.title }} (${{ product.price }})</li>
+      <div class="flex justify-between items-center space-y-2">
+        <div class="flex space-x-2 items-center">
+          <img class="w-6 h-6" [src]="product.image" [alt]="product.title" />
+          <h3>{{ product.title }}</h3>
+        </div>
+        <p>${{ product.price }}</p>
+      </div>
       }
-    </ul>
+    </div>
+    <div>
+      <p>Total {{ totalPrice() }}</p>
+    </div>
   </div>
 </div>
