@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CounterComponent } from '../../../shared/component/counter/counter.component';
+import { CounterComponent } from '@shared/component/counter/counter.component';
 import { WaveAudioComponent } from '../../component/wave-audio/wave-audio.component';
 
 @Component({

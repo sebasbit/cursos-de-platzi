@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Product } from '../../../shared/model/product.model';
+import { Product } from '@shared/model/product.model';
 
 @Component({
   selector: 'app-product',
