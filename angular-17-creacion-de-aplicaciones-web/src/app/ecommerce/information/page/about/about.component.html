@@ -1,33 +1,36 @@
-<header class="px-10">
-  <h1 class="text-lg font-bold">About us</h1>
-</header>
-<main class="px-10">
-  <section class="mb-4">
-    <p class="text-sm">
-      <span highlight>Lorem ipsum dolor sit amet</span>, consectetur adipiscing
-      elit. Fusce facilisis lacus ut metus porttitor, sit amet interdum leo
-      blandit. Nulla aliquam nulla egestas vehicula posuere. Sed vestibulum nec
-      augue bibendum sodales. Donec arcu est, vestibulum et mattis id, mattis ut
-      mauris. Nam tempor et diam vestibulum iaculis. Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit. In pharetra mi nec nulla maximus semper.
-      Suspendisse potenti. Pellentesque at magna in elit luctus ornare et a
-      lectus. Donec ornare lobortis mi non iaculis. Nam dignissim rhoncus
-      sollicitudin. Proin consectetur elit in mi ullamcorper, vel facilisis
-      ligula euismod.
-    </p>
-    <p class="text-sm">
-      Duis vel ullamcorper lacus. Nullam rutrum facilisis scelerisque. Maecenas
-      a hendrerit est. Cras ut quam non mauris tempor placerat ac ut felis.
-      Mauris in purus vel ex consectetur sodales. Cras id molestie quam. In hac
-      habitasse platea dictumst. Sed eu pellentesque quam, ac pharetra dolor.
-      Nam ac suscipit leo. Suspendisse potenti. In hac habitasse platea
-      dictumst.
-    </p>
-  </section>
-  <section class="mb-4">
-    <app-counter [duration]="duration()" [message]="message()" />
-  </section>
-  <section class="mb-4">
-    <app-wave-audio audioUrl="assets/audio.mp3" />
-  </section>
-</main>
+<div class="container mx-auto">
+  <app-header />
+  <header>
+    <h1 class="text-lg font-bold">About us</h1>
+  </header>
+  <main>
+    <section class="mb-4">
+      <p class="text-sm">
+        <span highlight>Lorem ipsum dolor sit amet</span>, consectetur
+        adipiscing elit. Fusce facilisis lacus ut metus porttitor, sit amet
+        interdum leo blandit. Nulla aliquam nulla egestas vehicula posuere. Sed
+        vestibulum nec augue bibendum sodales. Donec arcu est, vestibulum et
+        mattis id, mattis ut mauris. Nam tempor et diam vestibulum iaculis.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra mi
+        nec nulla maximus semper. Suspendisse potenti. Pellentesque at magna in
+        elit luctus ornare et a lectus. Donec ornare lobortis mi non iaculis.
+        Nam dignissim rhoncus sollicitudin. Proin consectetur elit in mi
+        ullamcorper, vel facilisis ligula euismod.
+      </p>
+      <p class="text-sm">
+        Duis vel ullamcorper lacus. Nullam rutrum facilisis scelerisque.
+        Maecenas a hendrerit est. Cras ut quam non mauris tempor placerat ac ut
+        felis. Mauris in purus vel ex consectetur sodales. Cras id molestie
+        quam. In hac habitasse platea dictumst. Sed eu pellentesque quam, ac
+        pharetra dolor. Nam ac suscipit leo. Suspendisse potenti. In hac
+        habitasse platea dictumst.
+      </p>
+    </section>
+    <section class="mb-4">
+      <app-counter [duration]="duration()" [message]="message()" />
+    </section>
+    <section class="mb-4">
+      <app-wave-audio audioUrl="assets/audio.mp3" />
+    </section>
+  </main>
+</div>

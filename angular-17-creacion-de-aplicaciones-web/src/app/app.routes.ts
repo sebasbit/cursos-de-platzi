@@ -4,6 +4,7 @@ import { LabsComponent } from './learning/pages/labs/labs.component';
 import { EcommerceComponent } from './ecommerce/ecommerce.component';
 import { ListComponent } from '@product/page/list/list.component';
 import { AboutComponent } from './ecommerce/information/page/about/about.component';
+import { NotFoundComponent } from './ecommerce/information/page/not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -32,5 +33,9 @@ export const routes: Routes = [
         component: AboutComponent,
       },
     ],
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   },
 ];

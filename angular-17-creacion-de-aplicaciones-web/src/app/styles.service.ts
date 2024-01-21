@@ -26,11 +26,7 @@ export class StylesService {
       return 'styles-learning.css';
     }
 
-    if (route.startsWith('/ecommerce')) {
-      return 'styles-ecommerce.css';
-    }
-
-    return 'styles.css';
+    return 'styles-ecommerce.css';
   }
 
   private appendStylesheetLinkElement(stylesheetName: string): void {
