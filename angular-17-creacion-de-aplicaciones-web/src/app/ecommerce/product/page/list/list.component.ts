@@ -1,14 +1,13 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { ProductComponent } from '@product/component/product/product.component';
 import { Product } from '@shared/model/product.model';
-import { HeaderComponent } from '@shared/component/header/header.component';
 import { CartService } from '@shared/service/cart.service';
 import { ProductService } from '@shared/service/product.service';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [ProductComponent, HeaderComponent],
+  imports: [ProductComponent],
   templateUrl: './list.component.html',
   styles: ``,
 })
