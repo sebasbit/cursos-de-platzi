@@ -17,7 +17,6 @@ import { TimeAgoPipe } from '@shared/pipe/time-ago.pipe';
     RouterLinkWithHref,
   ],
   templateUrl: './product.component.html',
-  styles: ``,
 })
 export class ProductComponent {
   @Input({ required: true }) product!: Product;

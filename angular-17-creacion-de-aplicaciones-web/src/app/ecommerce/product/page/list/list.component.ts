@@ -9,7 +9,6 @@ import { ProductService } from '@shared/service/product.service';
   standalone: true,
   imports: [ProductComponent],
   templateUrl: './list.component.html',
-  styles: ``,
 })
 export class ListComponent implements OnInit {
   private cartService = inject(CartService);
