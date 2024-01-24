@@ -5,6 +5,7 @@ import { EcommerceComponent } from './ecommerce/ecommerce.component';
 import { ListComponent } from '@product/page/list/list.component';
 import { AboutComponent } from './ecommerce/information/page/about/about.component';
 import { NotFoundComponent } from './ecommerce/information/page/not-found/not-found.component';
+import { ProductDetailComponent } from '@product/page/product-detail/product-detail.component';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,10 @@ export const routes: Routes = [
       {
         path: 'about',
         component: AboutComponent,
+      },
+      {
+        path: 'product/:id',
+        component: ProductDetailComponent,
       },
     ],
   },
