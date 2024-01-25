@@ -1,6 +1,7 @@
 import { CurrencyPipe, UpperCasePipe } from '@angular/common';
 import { Component, Input, OnInit, inject, signal } from '@angular/core';
 import { Product } from '@shared/model/product.model';
+import { CartService } from '@shared/service/cart.service';
 import { ProductService } from '@shared/service/product.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class ProductDetailComponent implements OnInit {
   cover = signal('');
 
   private productService = inject(ProductService);
+  private cartService = inject(CartService);
 
   ngOnInit(): void {
     if (this.id) {
@@ -32,7 +34,14 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
-  changeCover(imageUrl: string) {
+  changeCover(imageUrl: string): void {
     this.cover.set(imageUrl);
+  }
+
+  addToCart(): void {
+    const product = this.product();
+    if (product !== null) {
+      this.cartService.addToCart(product);
+    }
   }
 }
