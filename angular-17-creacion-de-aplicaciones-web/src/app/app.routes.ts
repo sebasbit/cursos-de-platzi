@@ -2,10 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './learning/pages/home/home.component';
 import { LabsComponent } from './learning/pages/labs/labs.component';
 import { EcommerceComponent } from './ecommerce/ecommerce.component';
-import { ListComponent } from '@product/page/list/list.component';
-import { AboutComponent } from './ecommerce/information/page/about/about.component';
 import { NotFoundComponent } from './ecommerce/information/page/not-found/not-found.component';
-import { ProductDetailComponent } from '@product/page/product-detail/product-detail.component';
 
 export const routes: Routes = [
   {
@@ -27,15 +24,17 @@ export const routes: Routes = [
     children: [
       {
         path: 'list',
-        component: ListComponent,
+        loadComponent: () => import('@product/page/list/list.component'),
       },
       {
         path: 'about',
-        component: AboutComponent,
+        loadComponent: () =>
+          import('./ecommerce/information/page/about/about.component'),
       },
       {
         path: 'product/:id',
-        component: ProductDetailComponent,
+        loadComponent: () =>
+          import('@product/page/product-detail/product-detail.component'),
       },
     ],
   },

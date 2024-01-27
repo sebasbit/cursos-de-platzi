@@ -10,7 +10,7 @@ import { ProductService } from '@shared/service/product.service';
   imports: [CurrencyPipe, UpperCasePipe],
   templateUrl: './product-detail.component.html',
 })
-export class ProductDetailComponent implements OnInit {
+export default class ProductDetailComponent implements OnInit {
   @Input() id!: number;
 
   product = signal<Product | null>(null);

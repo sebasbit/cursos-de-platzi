@@ -21,7 +21,7 @@ import { ProductService } from '@shared/service/product.service';
   imports: [ProductComponent, RouterLinkWithHref],
   templateUrl: './list.component.html',
 })
-export class ListComponent implements OnChanges, OnInit {
+export default class ListComponent implements OnChanges, OnInit {
   @Input() private categoryId?: string;
 
   products = signal<Product[]>([]);

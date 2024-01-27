@@ -9,7 +9,7 @@ import { HighlightDirective } from '@shared/directive/highlight.directive';
   imports: [CounterComponent, WaveAudioComponent, HighlightDirective],
   templateUrl: './about.component.html',
 })
-export class AboutComponent {
+export default class AboutComponent {
   duration = signal(5000);
   message = signal('This site has been visited');
 
