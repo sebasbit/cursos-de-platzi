@@ -1,0 +1,30 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ededed;
+}
+
+section span {
+  font-weight: 700;
+  color: green;
+}
+
+section button {
+  color: green;
+  background-color: lightgray;
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+section .message-error {
+  color: red;
+  opacity: 0;
+  transition: all linear 0.5s;
+}
+
+section .message-error.show {
+  opacity: 1;
+}

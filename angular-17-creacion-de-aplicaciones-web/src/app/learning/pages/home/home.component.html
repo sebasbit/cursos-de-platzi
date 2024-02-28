@@ -1,0 +1,110 @@
+<section class="todoapp">
+  <header class="header">
+    <div class="container">
+      <h1>My Day</h1>
+      <p>All my tasks in one place</p>
+      <input
+        class="new-todo"
+        placeholder="Type new todo"
+        autofocus
+        type="text"
+        [formControl]="taskControl"
+        (keyup.enter)="addTask()"
+      />
+    </div>
+  </header>
+  <div class="container todoapp-wrapper">
+    <!-- This section should be hidden by default and shown when there are todos -->
+    <section class="main">
+      <ul class="todo-list">
+        @for (task of filteredTasks(); track task.id) {
+        <li
+          [class.completed]="task.completed"
+          [class.editing]="task.editing"
+          (dblclick)="switchToEditMode(task.id)"
+        >
+          <div class="view">
+            <input
+              class="toggle"
+              type="checkbox"
+              [checked]="task.completed"
+              (change)="markAsCompleted(task.id)"
+            />
+            <label>{{ task.title }}</label>
+            <button class="destroy" (click)="deleteTask(task.id)"></button>
+          </div>
+          <input
+            class="edit"
+            [value]="task.title"
+            (keyup.enter)="changeTaskTitle(task.id, $event)"
+          />
+        </li>
+        }
+        <!-- <li class="completed">
+          <div class="view">
+            <input class="toggle" type="checkbox" checked />
+            <label>Learn JavaScript</label>
+            <button class="destroy"></button>
+          </div>
+          <input class="edit" value="Learn JavaScript" />
+        </li>
+        <li>
+          <div class="view">
+            <input class="toggle" type="checkbox" />
+            <label>Buy a unicorn</label>
+            <button class="destroy"></button>
+          </div>
+          <input class="edit" value="Buy a unicorn" />
+        </li>
+        <li class="editing">
+          <div class="view">
+            <input class="toggle" type="checkbox" />
+            <label>Make dishes</label>
+            <button class="destroy"></button>
+          </div>
+          <input class="edit" value="Make dishes" />
+        </li> -->
+      </ul>
+    </section>
+    <!-- This footer should be hidden by default and shown when there are todos -->
+    <footer class="footer">
+      <!-- This should be `0 items left` by default -->
+      <span class="todo-count">
+        <strong>{{ filteredTasks().length }} </strong>
+        @if (filteredTasks().length === 1) { item } @else { items }
+      </span>
+      <!-- Remove this if you don't implement routing -->
+      <ul class="filters">
+        <li>
+          <a
+            routerLink="/"
+            [class.selected]="filter() === 'ALL'"
+            (click)="changeFilter('ALL')"
+          >
+            All
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/pending"
+            [class.selected]="filter() === 'PENDING'"
+            (click)="changeFilter('PENDING')"
+          >
+            Pending
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/completed"
+            [class.selected]="filter() === 'COMPLETED'"
+            (click)="changeFilter('COMPLETED')"
+          >
+            Completed
+          </a>
+        </li>
+      </ul>
+      <!-- Hidden if no completed items are left ↓ -->
+      <button class="clear-completed">Clear completed</button>
+    </footer>
+  </div>
+</section>
