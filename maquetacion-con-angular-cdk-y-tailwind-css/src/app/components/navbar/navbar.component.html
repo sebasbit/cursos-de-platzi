@@ -1,0 +1,122 @@
+<nav class="bg-primary-800 border-gray-200 px-6 shadow-md">
+  <div class="flex flex-wrap justify-between items-center">
+    <div class="flex items-center">
+      <a routerLink="/">
+        <img
+          loading="lazy"
+          class="w-20 mr-8"
+          src="/assets/images/logo/logo-gradient-white-trello.png"
+          alt="Logo"
+        />
+      </a>
+      <div class="flex items-center">
+        <ul class="flex items-center space-x-8 text-sm font-medium">
+          <li>
+            <a class="block py-3 px-4 text-white">Workspaces</a>
+          </li>
+          <li>
+            <a class="block py-3 px-4 text-white">Recent</a>
+          </li>
+          <li>
+            <app-button btnType="button" color="light">Create</app-button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <button
+        type="button"
+        class="flex rounded-full"
+        aria-expanded="false"
+        (click)="isOpen = !isOpen"
+        cdkOverlayOrigin
+        #profileMenuOverlay="cdkOverlayOrigin"
+      >
+        <img
+          class="w-8 h-8 rounded-full"
+          src="https://api.lorem.space/image/face?w=400&h=400"
+          alt="User profile picture"
+        />
+      </button>
+    </div>
+  </div>
+</nav>
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="profileMenuOverlay"
+  [cdkConnectedOverlayOpen]="isOpen"
+>
+  <div
+    class="z-50 my-4 w-60 divide-y text-base list-none rounded bg-white shadow border border-gray-200"
+  >
+    <div class="py-3 px-4 flex justify-between">
+      <span class="block text-sm text-center text-gray-900">Account</span>
+      <button (click)="isOpen = !isOpen" class="block text-sm text-gray-900">
+        <svg
+          width="16px"
+          height="16px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z"
+            fill="#0F1729"
+          />
+        </svg>
+      </button>
+    </div>
+    <div class="py-3 px-4 flex items-center space-x-4">
+      <img
+        class="w-10 h-10 rounded-full"
+        src="https://api.lorem.space/image/face?w=400&h=400"
+        alt=""
+      />
+      <div class="space-y-1">
+        <div>Jese Leos</div>
+        <div class="text-sm text-gray-500">jese.leos&commat;gmail.com</div>
+      </div>
+    </div>
+    <ul class="py-1">
+      <li>
+        <a
+          href="#"
+          class="block py-2 px-4 text-sm hover:bg-primary-800 hover:text-white"
+        >
+          Profile
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          class="block py-2 px-4 text-sm hover:bg-primary-800 hover:text-white"
+        >
+          Activity
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          class="block py-2 px-4 text-sm hover:bg-primary-800 hover:text-white"
+        >
+          Cards
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          class="block py-2 px-4 text-sm hover:bg-primary-800 hover:text-white"
+        >
+          Settings
+        </a>
+      </li>
+    </ul>
+    <ul class="py-1">
+      <li>
+        <a href="#" class="block py-2 px-4 text-sm">Log out</a>
+      </li>
+    </ul>
+  </div>
+</ng-template>
