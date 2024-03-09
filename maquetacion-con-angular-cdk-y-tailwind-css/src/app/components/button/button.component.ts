@@ -26,7 +26,7 @@ export class ButtonComponent {
     const classList: { [color in Color]: string } = {
       primary:
         'text-white bg-primary-800 hover:bg-primary-700 active:bg-primary-900',
-      light: 'text-white bg-light-600 hover:bg-light-500 active:bg-light-700',
+      light: 'text-white bg-light-700 hover:bg-light-600 active:bg-light-800',
       default:
         'bg-white hover:bg-gray-100 active:bg-gray-200 border border-gray-400',
     };

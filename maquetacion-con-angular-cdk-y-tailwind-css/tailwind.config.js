@@ -7,8 +7,17 @@ module.exports = {
     extend: {
       colors: {
         primary: colors.blue,
-        light: colors.indigo,
+        light: colors.sky,
       },
+    },
+  },
+  container: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1024px",
+      "2xl": "1536px",
     },
   },
   plugins: [require("@tailwindcss/forms")],
