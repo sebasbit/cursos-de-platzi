@@ -22,9 +22,9 @@ Route::get('/blog', function () {
 
     return view('blog', ['posts' => $posts]);
         // ->with('posts', $posts) // Alternative
-});
+})->name('blog');
 
 Route::get('/blog/{slug}', function (string $slug) {
     $post = ['title' => ucfirst(str_replace('-', ' ', $slug))];
     return view('post', ['post' => $post]);
-});
+})->name('post');
