@@ -1,5 +1,5 @@
-import { DialogRef } from '@angular/cdk/dialog';
-import { Component } from '@angular/core';
+import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
+import { Component, Inject } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import {
   faClose,
@@ -11,6 +11,10 @@ import {
   faClock,
 } from '@fortawesome/free-solid-svg-icons';
 import { ButtonComponent } from '../button/button.component';
+import { Task } from '../../models/task.model';
+
+type DialogInput = { task: Task };
+type DialogOutput = string;
 
 @Component({
   selector: 'app-task-dialog',
@@ -27,5 +31,12 @@ export class TaskDialogComponent {
   faCheckSquare = faCheckSquare;
   faClock = faClock;
 
-  constructor(public dialogRef: DialogRef<string>) {}
+  task: Task;
+
+  constructor(
+    public dialogRef: DialogRef<DialogOutput>,
+    @Inject(DIALOG_DATA) public data: DialogInput
+  ) {
+    this.task = this.data.task;
+  }
 }

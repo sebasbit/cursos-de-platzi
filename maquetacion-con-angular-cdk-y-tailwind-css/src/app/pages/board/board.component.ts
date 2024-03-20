@@ -98,10 +98,15 @@ export class BoardComponent {
     this.newColumnTitle = '';
   }
 
-  openTaskDialog(): void {
-    this.dialog.open(TaskDialogComponent, {
+  openTaskDialog(task: Task): void {
+    const dialogRef = this.dialog.open(TaskDialogComponent, {
       minWidth: '250px',
       maxWidth: '50%',
+      data: { task },
+    });
+
+    dialogRef.closed.subscribe((result) => {
+      console.log(`Dialog opened for task ${result}`);
     });
   }
 }

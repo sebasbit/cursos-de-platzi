@@ -2,14 +2,14 @@
   <button
     type="button"
     class="absolute top-3 right-3 focus:outline-none p-2"
-    (click)="this.dialogRef.close()"
+    (click)="this.dialogRef.close(task.id)"
   >
     <fa-icon [icon]="faClose" />
   </button>
   <div class="flex space-x-2 mb-5">
     <fa-icon [icon]="faCheckToSlot" />
     <div class="flex flex-col">
-      <h3 class="text-lg font-semibold">HU03: Create components for the UI</h3>
+      <h3 class="text-lg font-semibold">{{ task.title }}</h3>
       <p class="text-sm text-gray-800">in list To Do</p>
     </div>
   </div>
