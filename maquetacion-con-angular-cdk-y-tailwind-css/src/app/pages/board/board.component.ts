@@ -12,6 +12,8 @@ import { Task } from '../../models/task.model';
 import { Column } from '../../models/column.model';
 import { ButtonComponent } from '../../components/button/button.component';
 import { FormsModule } from '@angular/forms';
+import { Dialog } from '@angular/cdk/dialog';
+import { TaskDialogComponent } from '../../components/task-dialog/task-dialog.component';
 
 @Component({
   selector: 'app-board',
@@ -64,6 +66,8 @@ export class BoardComponent {
     },
   ];
 
+  constructor(public dialog: Dialog) {}
+
   drop(event: CdkDragDrop<Task[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(
@@ -92,5 +96,12 @@ export class BoardComponent {
     });
 
     this.newColumnTitle = '';
+  }
+
+  openTaskDialog(): void {
+    this.dialog.open(TaskDialogComponent, {
+      minWidth: '250px',
+      maxWidth: '50%',
+    });
   }
 }
