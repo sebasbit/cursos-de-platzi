@@ -13,12 +13,19 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 export class TableTestComponent implements OnInit {
   products: Product[] = [];
   columns: string[] = ['id', 'cover', 'title', 'price'];
+  total = 0;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.http
       .get<Product[]>('https://api.escuelajs.co/api/v1/products')
-      .subscribe((products) => (this.products = products));
+      .subscribe((products) => {
+        this.products = products;
+        this.total = this.products.reduce(
+          (accum, product) => accum + product.price,
+          0
+        );
+      });
   }
 }
