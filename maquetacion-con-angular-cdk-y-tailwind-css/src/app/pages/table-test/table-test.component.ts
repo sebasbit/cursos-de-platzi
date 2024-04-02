@@ -5,16 +5,24 @@ import { HttpClient } from '@angular/common/http';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { ProductDataSource } from './data-source';
 import { ButtonComponent } from '../../components/button/button.component';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-table-test',
   standalone: true,
   templateUrl: './table-test.component.html',
-  imports: [NavbarComponent, ButtonComponent, CdkTableModule],
+  imports: [
+    NavbarComponent,
+    ButtonComponent,
+    CdkTableModule,
+    ReactiveFormsModule,
+  ],
 })
 export class TableTestComponent implements OnInit {
   dataSource = new ProductDataSource();
   columns: string[] = ['id', 'cover', 'title', 'price', 'actions'];
+  filter = new FormControl('');
   total = 0;
 
   constructor(private http: HttpClient) {}
@@ -26,6 +34,12 @@ export class TableTestComponent implements OnInit {
         this.dataSource.init(products);
         this.total = this.dataSource.getTotal();
       });
+
+    this.filter.valueChanges.pipe(debounceTime(300)).subscribe((input) => {
+      if (input !== null) {
+        this.dataSource.findProducts(input);
+      }
+    });
   }
 
   updateProduct(product: Product): void {

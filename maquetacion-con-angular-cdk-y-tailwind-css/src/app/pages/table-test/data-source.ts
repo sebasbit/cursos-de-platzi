@@ -3,20 +3,22 @@ import { Product } from '../../models/product.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 export class ProductDataSource extends DataSource<Product> {
-  private products = new BehaviorSubject<Product[]>([]);
+  private products: Product[] = [];
+  private productsObservable = new BehaviorSubject<Product[]>([]);
 
   connect(): Observable<readonly Product[]> {
-    return this.products;
+    return this.productsObservable;
   }
 
   disconnect(): void {}
 
   init(producs: Product[]): void {
-    this.products.next(producs);
+    this.products = producs;
+    this.productsObservable.next(producs);
   }
 
   getTotal(): number {
-    return this.products
+    return this.productsObservable
       .getValue()
       .reduce((accum, product) => accum + product.price, 0);
   }
@@ -25,11 +27,24 @@ export class ProductDataSource extends DataSource<Product> {
     productId: Product['id'],
     productChanges: Partial<Product>
   ): void {
-    const products = this.products.getValue();
-    const index = products.findIndex((product) => product.id === productId);
+    const index = this.products.findIndex(
+      (product) => product.id === productId
+    );
     if (index !== -1) {
-      products[index] = { ...products[index], ...productChanges };
-      this.products.next(products);
+      this.products[index] = { ...this.products[index], ...productChanges };
+      this.productsObservable.next(this.products);
     }
+  }
+
+  findProducts(query: string): void {
+    if (query.trim() === '') {
+      this.productsObservable.next(this.products);
+      return;
+    }
+
+    const filtered = this.products.filter((product) =>
+      product.title.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+    );
+    this.productsObservable.next(filtered);
   }
 }
