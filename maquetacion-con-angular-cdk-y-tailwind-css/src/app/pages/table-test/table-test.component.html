@@ -4,7 +4,7 @@
     <h1 class="text-xl font-bold mb-4">Table view</h1>
     <table
       cdk-table
-      [dataSource]="products"
+      [dataSource]="dataSource"
       class="w-full text-sm text-left rtl:text-right"
     >
       <ng-container cdkColumnDef="id">
@@ -46,6 +46,16 @@
         </td>
       </ng-container>
 
+      <ng-container cdkColumnDef="actions">
+        <th cdk-header-cell *cdkHeaderCellDef class="px-6 py-3"></th>
+        <td cdk-cell *cdkCellDef="let row" class="px-6 py-4 font-semibold">
+          <app-button color="primary" (click)="updateProduct(row)"
+            >Update</app-button
+          >
+        </td>
+        <td cdk-footer-cell *cdkFooterCellDef></td>
+      </ng-container>
+
       <tr
         cdk-header-row
         *cdkHeaderRowDef="columns"
@@ -54,7 +64,7 @@
       <tr
         cdk-row
         *cdkRowDef="let row; columns: columns"
-        class="bg-white border-b border-b-gray-300"
+        class="border-b border-b-gray-300"
         [class.bg-red-100]="row.price < 50"
       ></tr>
       <tr
