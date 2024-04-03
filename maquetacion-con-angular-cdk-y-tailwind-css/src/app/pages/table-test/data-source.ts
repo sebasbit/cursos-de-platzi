@@ -42,9 +42,10 @@ export class ProductDataSource extends DataSource<Product> {
       return;
     }
 
-    const filtered = this.products.filter((product) =>
-      product.title.toLocaleLowerCase().includes(query.toLocaleLowerCase())
-    );
+    const filtered = this.products.filter((product) => {
+      const fullMatch = `${product.id} ${product.title} ${product.price}`;
+      return fullMatch.toLocaleLowerCase().includes(query.toLocaleLowerCase());
+    });
     this.productsObservable.next(filtered);
   }
 }

@@ -28,20 +28,28 @@
     </div>
     <div class="flex flex-auto space-y-2 flex-col">
       <app-button typeBtn="button" color="default">
-        <fa-icon [icon]="faUser" />
-        Members
+        <span class="flex space-x-2 text-left">
+          <fa-icon [icon]="faUser" />
+          <span>Members</span>
+        </span>
       </app-button>
       <app-button typeBtn="button" color="default">
-        <fa-icon [icon]="faTag" />
-        Labels
+        <span class="flex space-x-2 text-left">
+          <fa-icon [icon]="faTag" />
+          <span>Labels</span>
+        </span>
       </app-button>
       <app-button typeBtn="button" color="default">
-        <fa-icon [icon]="faCheckSquare" />
-        Checklist
+        <span class="flex space-x-2 text-left">
+          <fa-icon [icon]="faCheckSquare" />
+          <span>Checklist</span>
+        </span>
       </app-button>
       <app-button typeBtn="button" color="default">
-        <fa-icon [icon]="faClock" />
-        Dates
+        <span class="flex space-x-2 text-left">
+          <fa-icon [icon]="faClock" />
+          <span>Dates</span>
+        </span>
       </app-button>
     </div>
   </div>

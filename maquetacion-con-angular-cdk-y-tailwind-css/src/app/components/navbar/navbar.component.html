@@ -51,6 +51,7 @@
   cdkConnectedOverlay
   [cdkConnectedOverlayOrigin]="profileMenuOverlay"
   [cdkConnectedOverlayOpen]="isOpen"
+  (overlayOutsideClick)="isOpen = !isOpen"
 >
   <div
     class="z-50 my-4 w-60 divide-y text-base list-none rounded bg-white shadow border border-gray-200"
