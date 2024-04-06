@@ -1,5 +1,5 @@
 import { DataSource } from '@angular/cdk/collections';
-import { Product } from '../../models/product.model';
+import { Product } from '@trello-clone/modules/core/models/product.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 export class ProductDataSource extends DataSource<Product> {

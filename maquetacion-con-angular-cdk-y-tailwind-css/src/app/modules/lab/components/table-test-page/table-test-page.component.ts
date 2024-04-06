@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkTableModule } from '@angular/cdk/table';
-import { Product } from '../../models/product.model';
 import { HttpClient } from '@angular/common/http';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { ProductDataSource } from './data-source';
-import { ButtonComponent } from '../../components/button/button.component';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime } from 'rxjs';
+import { NavbarComponent } from '@trello-clone/modules/shared/components/navbar/navbar.component';
+import { ButtonComponent } from '@trello-clone/modules/shared/components/button/button.component';
+import { Product } from '@trello-clone/modules/core/models/product.model';
 
 @Component({
-  selector: 'app-table-test',
+  selector: 'lab-table-test-page',
   standalone: true,
-  templateUrl: './table-test.component.html',
+  templateUrl: './table-test-page.component.html',
   imports: [
     NavbarComponent,
     ButtonComponent,

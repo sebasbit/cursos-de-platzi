@@ -1,5 +1,5 @@
 <div class="flex flex-col h-screen">
-  <app-navbar />
+  <trello-navbar />
   <div class="w-full grow bg-light-700 px-4 pb-4">
     <div class="flex flex-col h-full">
       <div>
@@ -44,8 +44,8 @@
                 [(ngModel)]="newColumnTitle"
               />
             </div>
-            <app-button color="primary" (click)="addNewColumn()"
-              >Add</app-button
+            <trello-button color="primary" (click)="addNewColumn()"
+              >Add</trello-button
             >
           </div>
         </div>

@@ -7,27 +7,27 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { Task } from '../../models/task.model';
-import { Column } from '../../models/column.model';
-import { ButtonComponent } from '../../components/button/button.component';
 import { FormsModule } from '@angular/forms';
 import { Dialog } from '@angular/cdk/dialog';
-import { TaskDialogComponent } from '../../components/task-dialog/task-dialog.component';
+import { NavbarComponent } from '@trello-clone/modules/shared/components/navbar/navbar.component';
+import { ButtonComponent } from '@trello-clone/modules/shared/components/button/button.component';
+import { Column } from '@trello-clone/modules/core/models/column.model';
+import { Task } from '@trello-clone/modules/core/models/task.model';
+import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 
 @Component({
-  selector: 'app-board',
+  selector: 'trello-board-page',
   standalone: true,
   imports: [
     NavbarComponent,
     ButtonComponent,
-    FormsModule,
     CdkDropListGroup,
     CdkDropList,
     CdkDrag,
+    FormsModule,
   ],
-  templateUrl: './board.component.html',
-  styleUrl: './board.component.scss',
+  templateUrl: './board-page.component.html',
+  styleUrl: './board-page.component.scss',
 })
 export class BoardComponent {
   newColumnTitle: string = '';

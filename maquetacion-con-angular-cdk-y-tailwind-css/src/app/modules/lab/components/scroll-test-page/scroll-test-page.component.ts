@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { HttpClient } from '@angular/common/http';
-import { Product } from '../../models/product.model';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { NavbarComponent } from '@trello-clone/modules/shared/components/navbar/navbar.component';
+import { Product } from '@trello-clone/modules/core/models/product.model';
 
 @Component({
-  selector: 'app-scroll-test',
+  selector: 'lab-scroll-test-page',
   standalone: true,
   imports: [NavbarComponent, ScrollingModule],
-  templateUrl: './scroll-test.component.html',
+  templateUrl: './scroll-test-page.component.html',
 })
 export class ScrollTestComponent implements OnInit {
   products: Product[] = [];

@@ -1,5 +1,5 @@
 <div class="flex flex-col h-screen">
-  <app-navbar />
+  <trello-navbar />
   <div class="w-full grow bg-white p-6">
     <h1 class="text-xl font-bold mb-4">Table view</h1>
     <input
@@ -55,8 +55,8 @@
       <ng-container cdkColumnDef="actions">
         <th cdk-header-cell *cdkHeaderCellDef class="px-6 py-3"></th>
         <td cdk-cell *cdkCellDef="let row" class="px-6 py-4 font-semibold">
-          <app-button color="primary" (click)="updateProduct(row)"
-            >Update</app-button
+          <trello-button color="primary" (click)="updateProduct(row)"
+            >Update</trello-button
           >
         </td>
         <td cdk-footer-cell *cdkFooterCellDef></td>

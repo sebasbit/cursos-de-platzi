@@ -10,14 +10,14 @@ import {
   faCheckSquare,
   faClock,
 } from '@fortawesome/free-solid-svg-icons';
-import { ButtonComponent } from '../button/button.component';
-import { Task } from '../../models/task.model';
+import { Task } from '@trello-clone/modules/core/models/task.model';
+import { ButtonComponent } from '@trello-clone/modules/shared/components/button/button.component';
 
 type DialogInput = { task: Task };
 type DialogOutput = string;
 
 @Component({
-  selector: 'app-task-dialog',
+  selector: 'trello-task-dialog',
   standalone: true,
   imports: [ButtonComponent, FaIconComponent],
   templateUrl: './task-dialog.component.html',
