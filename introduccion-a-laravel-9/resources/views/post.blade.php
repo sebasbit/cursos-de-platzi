@@ -2,7 +2,11 @@
 
 @section('content')
     <h1>{{ $post->title }}</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ut inventore tenetur omnis nisi qui repellat sequi et,
-    magnam, quae incidunt labore dolorem soluta nihil culpa atque commodi assumenda velit.</p>
+    <p>{{ $post->content }}</p>
+    <blockquote class="blockquote mb-0">
+        <footer class="blockquote-footer">
+            Posted by {{ $post->user->name }} on {{ $post->created_at->format('Y-m-d') }}
+        </footer>
+    </blockquote>
     <a href="{{ route('blog') }}">Go back</a>
 @endsection
