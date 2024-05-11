@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home']);
 // Route::view('/blog'); // Alternative for basic pages
 Route::get('/blog', [PageController::class, 'blog'])->name('blog');
-Route::get('/blog/{slug}', [PageController::class, 'post'])->name('post');
+Route::get('/blog/{post:slug}', [PageController::class, 'post'])->name('post');
 
 // Alternative
 // Route::controller(PageController::class)->group(function () {
