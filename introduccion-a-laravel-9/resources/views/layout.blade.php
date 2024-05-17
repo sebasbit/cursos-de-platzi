@@ -17,18 +17,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                     </li>
-                    @auth
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
-                        </li>
-                    @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Sign in</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Sign up</a>
-                        </li>
-                    @endauth
+                    <li class="nav-item">
+                        @auth
+                        <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                        @else
+                        <a class="nav-link" href="{{ route('login') }}">Sign in</a>
+                        @endauth
+                    </li>
                 </ul>
             </div>
         </div>
