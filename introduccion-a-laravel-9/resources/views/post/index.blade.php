@@ -15,7 +15,8 @@
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{ $post->title }}</h5>
                         </a>
                         <p class="mb-4 font-normal text-gray-700">{{ Str::limit($post->content, 128) }}</p>
-                        <x-primary-button>Read more</x-primary-button>
+                        <x-primary-button>{{ __('Read more') }}</x-primary-button>
+                        <x-delete-button action="{{ route('post.destroy', $post) }}">{{ __('Delete') }}</x-delete-button>
                     </div>
                     @empty
                     <p class="font-normal text-gray-700">{{ __('There are no publications') }}</p>
