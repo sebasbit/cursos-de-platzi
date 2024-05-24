@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     function home()
     {
-        return view('welcome');
+        return view('welcome')
+            ->with('posts', Post::latest()->paginate());
     }
 
     function blog()
