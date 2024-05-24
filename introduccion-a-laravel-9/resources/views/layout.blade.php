@@ -17,7 +17,7 @@
             <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <span class="self-center text-2xl font-semibold whitespace-nowrap ">✏️ Laravel Blog</span>
             </a>
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <div class="hidden w-full md:block md:w-auto">
                 <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
                     <li>
                         @auth

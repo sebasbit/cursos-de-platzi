@@ -12,13 +12,18 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 text-gray-900">
+                <form action="{{ route('home') }}">
+                    <x-input-label for="search" :value="__('Search')" />
+                    <x-text-input id="search" type="text" name="search" value="{{ request('search') }}" />
+                </form>
+                
                 @forelse ($posts as $post)
-                <div class="w-full p-6 mb-4 bg-white border border-gray-200 rounded-lg shadow">
+                <div class="w-full p-6 mt-4 bg-white border border-gray-200 rounded-lg shadow">
                     <div class="flex justify-between">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{ $post->title }}</h5>
-                        <span class="mb-4 text-sm text-gray-500">{{ $post->created_at->format('Y/m/d') }}</span>
+                        <span class="text-sm text-gray-500">{{ $post->created_at->format('Y/m/d') }}</span>
                     </div>
-                    <p class="mb-4 font-normal text-gray-700">{{ Str::limit($post->content, 128) }}</p>
+                    <p class="font-normal text-gray-700">{{ Str::limit($post->content, 128) }}</p>
                     <a href="{{ route('post', $post) }}" class="font-medium text-blue-600 hover:underline">Read more</a>
                 </div>
                 @empty

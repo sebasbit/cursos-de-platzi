@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    function home()
+    function home(Request $request)
     {
+        $search = trim($request->input('search', ''));
+        $posts = $search !== ''
+            ? Post::where('title', 'LIKE', "%{$search}%")->latest()->paginate()
+            : Post::latest()->paginate();
+
         return view('welcome')
-            ->with('posts', Post::latest()->paginate());
+            ->with('posts', $posts);
     }
 
     function blog()
