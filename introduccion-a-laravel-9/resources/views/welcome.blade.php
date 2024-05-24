@@ -21,7 +21,7 @@
                 <div class="w-full p-6 mt-4 bg-white border border-gray-200 rounded-lg shadow">
                     <div class="flex justify-between">
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{ $post->title }}</h5>
-                        <span class="text-sm text-gray-500">{{ $post->created_at->format('Y/m/d') }}</span>
+                        <span class="text-sm text-gray-500">Posted by {{ $post->user->name }} on {{ $post->created_at->format('Y/m/d') }}</span>
                     </div>
                     <p class="font-normal text-gray-700">{{ Str::limit($post->content, 128) }}</p>
                     <a href="{{ route('post', $post) }}" class="font-medium text-blue-600 hover:underline">Read more</a>
