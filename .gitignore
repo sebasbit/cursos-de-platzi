@@ -237,3 +237,17 @@
 **/out-tsc
 **/bazel-out
 **/tmp
+
+# Laravel
+**/public/build
+**/public/hot
+**/public/storage
+**/storage/*.key
+**/vendor
+**/.env.backup
+**/.env.production
+**/.phpunit.result.cache
+**/Homestead.json
+**/Homestead.yaml
+**/auth.json
+**/databases/*.sqlite
