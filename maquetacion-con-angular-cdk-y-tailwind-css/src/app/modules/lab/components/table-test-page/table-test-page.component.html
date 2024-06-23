@@ -55,9 +55,9 @@
       <ng-container cdkColumnDef="actions">
         <th cdk-header-cell *cdkHeaderCellDef class="px-6 py-3"></th>
         <td cdk-cell *cdkCellDef="let row" class="px-6 py-4 font-semibold">
-          <trello-button color="primary" (click)="updateProduct(row)"
-            >Update</trello-button
-          >
+          <button trelloButton color="primary" (click)="updateProduct(row)">
+            Update
+          </button>
         </td>
         <td cdk-footer-cell *cdkFooterCellDef></td>
       </ng-container>
