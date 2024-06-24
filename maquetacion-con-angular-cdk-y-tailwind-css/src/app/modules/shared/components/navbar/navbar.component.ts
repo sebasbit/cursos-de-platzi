@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { OverlayModule } from '@angular/cdk/overlay';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import {
   faBell,
@@ -7,11 +6,20 @@ import {
   faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { ButtonComponent } from '@trello-clone/modules/shared/components/button/button.component';
+import {
+  DropdownButtonDirective,
+  DropdownComponent,
+} from '@trello-clone/modules/shared/components/dropdown/dropdown.component';
 
 @Component({
   selector: 'trello-navbar',
   standalone: true,
-  imports: [ButtonComponent, FaIconComponent, OverlayModule],
+  imports: [
+    ButtonComponent,
+    FaIconComponent,
+    DropdownButtonDirective,
+    DropdownComponent,
+  ],
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {

@@ -34,9 +34,7 @@
         type="button"
         class="flex rounded-full"
         aria-expanded="false"
-        (click)="isOpen = !isOpen"
-        cdkOverlayOrigin
-        #profileMenuOverlay="cdkOverlayOrigin"
+        [trelloDropdownButtonFor]="profileDropdown"
       >
         <img
           class="w-8 h-8 rounded-full"
@@ -47,12 +45,7 @@
     </div>
   </div>
 </nav>
-<ng-template
-  cdkConnectedOverlay
-  [cdkConnectedOverlayOrigin]="profileMenuOverlay"
-  [cdkConnectedOverlayOpen]="isOpen"
-  (overlayOutsideClick)="isOpen = !isOpen"
->
+<trello-dropdown #profileDropdown>
   <div
     class="z-50 my-4 w-60 divide-y text-base list-none rounded bg-white shadow border border-gray-200"
   >
@@ -60,7 +53,10 @@
       <span class="block w-full text-sm text-center text-gray-900">
         Account
       </span>
-      <button (click)="isOpen = !isOpen" class="block text-sm text-gray-900">
+      <button
+        (click)="profileDropdown.toggle()"
+        class="block text-sm text-gray-900"
+      >
         <fa-icon [icon]="faXmark" />
       </button>
     </div>
@@ -115,4 +111,4 @@
       </li>
     </ul>
   </div>
-</ng-template>
+</trello-dropdown>

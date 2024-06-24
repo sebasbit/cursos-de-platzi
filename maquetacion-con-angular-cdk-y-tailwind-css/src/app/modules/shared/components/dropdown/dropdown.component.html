@@ -1,0 +1,8 @@
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="dropdownButton"
+  [cdkConnectedOverlayOpen]="isOpen"
+  (overlayOutsideClick)="handleOutsideClick()"
+>
+  <ng-content />
+</ng-template>
