@@ -1,21 +1,20 @@
-import { NgClass } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
-type BtnType = 'button' | 'reset' | 'submit';
 type Color = 'primary' | 'light' | 'default';
 
 @Component({
-  selector: 'trello-button',
+  selector: 'button[trelloButton], a[trelloButton]',
   standalone: true,
-  imports: [NgClass],
+  imports: [],
   templateUrl: './button.component.html',
 })
 export class ButtonComponent {
-  @Input() btnType: BtnType = 'button';
   @Input() color: Color = 'default';
 
-  get colorClasses(): string {
-    const classList: { [color in Color]: string } = {
+  @HostBinding('class')
+  get styles(): string {
+    const baseStyle = 'w-full font-medium rounded text-sm px-5 py-2';
+    const colorStyle: { [color in Color]: string } = {
       primary:
         'text-white bg-primary-800 hover:bg-primary-700 active:bg-primary-900',
       light: 'text-white bg-light-700 hover:bg-light-600 active:bg-light-800',
@@ -23,6 +22,6 @@ export class ButtonComponent {
         'bg-white hover:bg-gray-100 active:bg-gray-200 border border-gray-400',
     };
 
-    return classList[this.color] ?? classList['default'];
+    return baseStyle + ' ' + (colorStyle[this.color] ?? colorStyle['default']);
   }
 }
