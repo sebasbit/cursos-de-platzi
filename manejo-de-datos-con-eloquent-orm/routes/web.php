@@ -8,5 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/project', [ProjectController::class, 'index']);
+Route::get('/project/{id}', [ProjectController::class, 'show'])
+    ->whereNumber('limit');
 Route::get('/project/limited/{limit}', [ProjectController::class, 'limited'])
     ->whereNumber('limit');
