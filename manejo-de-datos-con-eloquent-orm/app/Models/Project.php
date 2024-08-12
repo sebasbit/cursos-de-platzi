@@ -14,4 +14,8 @@ class Project extends Model
     // protected $attributes = [
     //     'name' => 'NN' // default value for the column
     // ];
+
+    protected $casts = [
+        'execution_date' => 'date'
+    ];
 }

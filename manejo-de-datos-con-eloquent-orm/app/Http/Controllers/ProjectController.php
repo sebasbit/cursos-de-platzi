@@ -13,7 +13,9 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        return Project::all();
+        return view('project.index', [
+            'projects' => Project::all()
+        ]);
     }
 
     public function show(int $id)
@@ -41,6 +43,30 @@ class ProjectController extends Controller
 
     public function store(Request $request) {
         $project = new Project();
+        $project->city_id = $request->get('city');
+        $project->company_id = $request->get('company');
+        $project->user_id = $request->get('user');
+        $project->name = $request->get('name');
+        $project->execution_date = $request->get('execution_date');
+        $project->is_active = $request->has('is_active');
+        $project->save();
+
+        return redirect()->route('project.index');
+    }
+
+    public function edit(int $id)
+    {
+        return view('project.edit', [
+            'project' => Project::findOrFail($id),
+            'cities' => City::all(),
+            'companies' => Company::all(),
+            'users' => User::all(),
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        $project = Project::findOrFail($request->get('id'));
         $project->city_id = $request->get('city');
         $project->company_id = $request->get('company');
         $project->user_id = $request->get('user');
