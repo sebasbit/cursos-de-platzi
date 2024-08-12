@@ -29,14 +29,20 @@
                         </li>
                         <li>
                             <a href="{{ route('project.create') }}" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500">
-                                New Project
+                                New project
                             </a>
+                        </li>
+                        <li>
+                            <form action="{{ route('project.destroy') }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" onclick="return confirm('Are you sure?')" class="block py-2 px-3 text-white bg-red-700 rounded md:bg-transparent md:text-red-700 md:p-0 dark:text-white md:dark:text-red-500">Purge inactive projects</button>
+                            </form>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-  
 
         @yield('content')
     </body>
