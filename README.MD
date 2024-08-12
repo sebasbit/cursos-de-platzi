@@ -10,3 +10,4 @@ En este repositorio subiré el código y los recursos de cada curso que tome. Ca
 - [Curso de Angular 17 Creación de Aplicaciones Web](/angular-17-creacion-de-aplicaciones-web/)
 - [Curso de Maquetación con Angular CDK y Tailwind CSS](/maquetacion-con-angular-cdk-y-tailwind-css/)
 - [Curso de Introducción a Laravel 9](/introduccion-a-laravel-9/)
+- [Curso Básico de Manejo de Datos en Laravel con Eloquent ORM](/manejo-de-datos-con-eloquent-orm/)
