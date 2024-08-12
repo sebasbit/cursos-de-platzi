@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\NewestScope;
+use Illuminate\Database\Eloquent\Attributes\ScopedBy;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+#[ScopedBy(NewestScope::class)]
 class Project extends Model
 {
     use HasFactory;
@@ -18,4 +22,14 @@ class Project extends Model
     protected $casts = [
         'execution_date' => 'date'
     ];
+
+    // protected static function booted(): void // same as #[ScopedBy(NewestScope::class)]
+    // {
+    //     static::addGlobalScope(new NewestScope());
+    // }
+
+    public function scopeInactive(Builder $query): void
+    {
+        $query->where('is_active', '=', false);
+    }
 }

@@ -80,8 +80,7 @@ class ProjectController extends Controller
 
     public function destroy()
     {
-        Project::where('is_active', '=', false)
-            ->delete();
+        Project::inactive()->delete();
 
         return redirect()->route('project.index');
     }
