@@ -17,5 +17,5 @@ class User extends Model
     // protected $keyType = 'int'; // overwrite primary key column type
     // public $incrementing = true; // disable auto-increment of primary key column
 
-    protected $timestamps = false; // disable timestamp fields
+    public $timestamps = false; // disable timestamp fields
 }
